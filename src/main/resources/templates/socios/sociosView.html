@@ -41,11 +41,11 @@
             <h1 class="userTittle">Socios</h1>
             <div class="listUser-menuControl">
                 <div class="listUser__search-container">
-                    <input class="listUser__search" type="text" placeholder="Buscar Usuario">
+                    <input class="listUser__search" type="text" placeholder="Buscar socio por ID">
                     <button class="listUser__btnSearch"><i class="fas fa-search"></i></button>
                 </div>
 
-                <a class="listUser__registerButton" th:href="@{register}"><i class="fas fa-user-plus"></i>add User</a>
+                <a class="listUser__registerButton" th:href="@{register}"><i class="fas fa-user-plus"></i>alta Socio</a>
 
             </div>
             <table class="table">
@@ -53,7 +53,9 @@
                 <tr class="table__colums">
                     <th class="table__colums-th"><i class="far fa-envelope"></i>Email</th>
                     <th class="table__colums-th"><i class="fas fa-user"></i>Nombre</th>
-                    <th class="table__colums-th"><i class="fas fa-address-card"></i>Apellido</th>
+                    <th class="table__colums-th"><i class="fas fa-user"></i>Apellido</th>
+                    <th class="table__colums-th"><i class="fas fa-address-card"></i>direccion</th>
+                    <th class="table__colums-th"><i class="fas fa-phone"></i>telefono</th>
                     <th class="table__colums-th"></th>
                     <th class="table__colums-th"></th>
                     <th class="table__colums-th"></th>
@@ -64,6 +66,8 @@
                     <td class="table__rows-td" th:text="${socio.email}"></td>
                     <td class="table__rows-td" th:text="${socio.nombre}"></td>
                     <td class="table__rows-td" th:text="${socio.apellido}"></td>
+                    <td class="table__rows-td" th:text="${socio.direccion}"></td>
+                    <td class="table__rows-td" th:text="${socio.telefono}"></td>
                     <!--            <td><a th:href="@{/users/view/{id}(id=${user.id})}">Ver</a></td>-->
                     <!--            <td><a th:href="@{/users/edit/{id}(id=${user.id})}">Editar</a></td>-->
                     <!--            <td><a th:href="@{/users/delete/{id}(id=${user.id})}">Eliminar</a></td>-->

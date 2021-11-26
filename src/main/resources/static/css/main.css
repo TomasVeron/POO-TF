@@ -1,6 +1,7 @@
 body{
     font-family: 'Ubuntu', sans-serif;
     margin: 0;
+
 }
 
 :root{
@@ -15,6 +16,7 @@ body{
     justify-content: center;
     align-items: center;
     height: 100vh;
+
 }
 
 
