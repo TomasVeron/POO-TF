@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container border gx-5">
+        <h1 >Users Details</h1>
+        <span class="d-block" th:text="${'Username: ' + user.userName}"></span>
+        <span class="d-block" th:text="${'Firstname: ' + user.firstName}"></span>
+        <span class="d-block" th:text="${'LastName: ' + user.lastName}"></span>
+        <a class="badge badge-primary" th:href="@{/users}">Users List</a>
+    </div>
+    <script src="/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js" ></script>
+</body>
+</html>
