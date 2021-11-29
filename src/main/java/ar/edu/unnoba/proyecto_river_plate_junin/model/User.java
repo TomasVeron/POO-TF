@@ -16,15 +16,13 @@ import java.util.Arrays;
 import java.util.Collection;
 
 import lombok.Data;
-//Los metodos get, set y constructor los proporsiona lombok
+//Los metodos get, set y constructor los proporsiona lombok con @Data
 @Data
 @Entity
 @Table(name="usuarios")
 public class User implements UserDetails {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-
-
     @Column(name = "id_usuario")
     private Long id;
 
@@ -52,9 +50,6 @@ public class User implements UserDetails {
     @Size(min = 8, message = "la contraseña debe ser de al menos 8 caracteres")
     private String confirmarPassword;
 
-    @NotNull
-    @Column(name = "rol")
-    private boolean rol;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -98,6 +93,6 @@ public class User implements UserDetails {
         return true;
     }
 
-    
+
 
 }

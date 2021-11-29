@@ -20,9 +20,8 @@ public class UserController {
     private UserService userService;
 
     @GetMapping("/login")
-    public String loginUser(Model model, String err){
+    public String loginUser(Model model){
         model.addAttribute("user", new User());
-        model.addAttribute("err", err);
         return "login";
     }
 
