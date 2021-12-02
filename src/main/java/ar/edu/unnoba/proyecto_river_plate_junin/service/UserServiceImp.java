@@ -66,4 +66,11 @@ public class UserServiceImp implements UserService, UserDetailsService{
     public List<User> getAllUsers() {
         return repository.findAll();
     }
+
+    @Override
+    public User getSocioById(Long id) {
+        return repository.findById(id).get();
+    }
+
+
 }

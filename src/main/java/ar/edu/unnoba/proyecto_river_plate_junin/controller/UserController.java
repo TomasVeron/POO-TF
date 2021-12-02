@@ -50,10 +50,17 @@ public class UserController {
     }
 
     @GetMapping("/users")
-    public String usersView(Model model){
+    public String usersList(Model model){
         model.addAttribute("users", userService.getAllUsers());
         return "/users/users";
 
+    }
+
+    @GetMapping("/users/view/{id}")
+    public String usersView(@PathVariable("id") Long userId,Model model){
+        User user = userService.getSocioById(userId);
+        model.addAttribute("user", user);
+        return "users/view";
     }
 
 

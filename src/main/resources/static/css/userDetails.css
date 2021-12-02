@@ -1,0 +1,14 @@
+
+
+
+.userDetails{
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.userDetails-container{
+    display: flex;
+    justify-content: space-between;
+}
