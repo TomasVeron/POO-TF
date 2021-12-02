@@ -21,25 +21,29 @@
 </header>
 <div class="main">
     <div class="userDetails">
-        <h1>Detalles de Usuario</h1>
+        <h1 class="userTittle">usuarios-<span th:text="${user.nombre}"></span></h1>
+        <div class="userDetails__header">
+            <h2 class="userDetails__header-tittle">Detalles de Usuario</h2>
+            <a class="userDetails__header-backbutton" th:href="@{/users}"><i class="fas fa-long-arrow-alt-left"></i> volver</a>
+        </div>
         <div class="userDetails-container">
-            <h2 class="userDetails__detailName">Id</h2>
+            <h3 class="userDetails__detailName">Id</h3>
             <span class="userDetails__detailInfo" th:text="${user.id}"></span>
         </div>
         <div class="userDetails-container">
-            <h2 class="userDetails__detailName">Email</h2>
+            <h3 class="userDetails__detailName">Email</h3>
             <span class="userDetails__detailInfo" th:text="${user.email}"></span>
         </div>
         <div class="userDetails-container">
-            <h2 class="userDetails__detailName">Nombre</h2>
+            <h3 class="userDetails__detailName">Nombre</h3>
             <span class="userDetails__detailInfo" th:text="${user.nombre}"></span>
         </div>
         <div class="userDetails-container">
-            <h2 class="userDetails__detailName">Apellido</h2>
+            <h3 class="userDetails__detailName">Apellido</h3>
             <span class="userDetails__detailInfo" th:text="${user.apellido}"></span>
         </div>
         <div class="userDetails-container">
-            <h2 class="userDetails__detailName">rol</h2>
+            <h3 class="userDetails__detailName">rol</h3>
             <span class="userDetails__detailInfo">USER</span>
         </div>
     </div>
