@@ -5,12 +5,13 @@ import ar.edu.unnoba.proyecto_river_plate_junin.service.*;
 import ar.edu.unnoba.proyecto_river_plate_junin.model.User;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 
 @Controller
@@ -58,9 +59,21 @@ public class UserController {
 
     @GetMapping("/users/view/{id}")
     public String usersView(@PathVariable("id") Long userId,Model model){
-        User user = userService.getSocioById(userId);
+        User user = userService.getUserById(userId);
         model.addAttribute("user", user);
         return "users/view";
+    }
+
+    @GetMapping("/users/delete/{id}")
+    public String usersDelete(@PathVariable("id") Long userId,  Authentication authentication, RedirectAttributes redirectAttributes){
+        User user = userService.getUserById(userId);
+        User sessionUser = (User)authentication.getPrincipal();
+        try {
+            userService.deleteUser(user,sessionUser);
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("userDeleteError", e.getMessage());
+        }
+        return "redirect:/users";
     }
 
 

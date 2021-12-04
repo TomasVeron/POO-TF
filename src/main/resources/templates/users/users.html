@@ -26,10 +26,9 @@
                 <div class="listUser__search-container">
                     <input class="listUser__search" type="text" placeholder="Buscar Usuario">
                     <button class="listUser__btnSearch"><i class="fas fa-search"></i></button>
+                    <div class="listUser__errorDelete" th:if="${userDeleteError}" th:text="${userDeleteError}"></div>
                 </div>
-
                 <a class="listUser__registerButton" th:href="@{register}"><i class="fas fa-user-plus"></i>add User</a>
-
             </div>
             <table class="table">
                 <thead>
@@ -48,7 +47,6 @@
                     <td class="table__rows-td" th:text="${user.nombre}"></td>
                     <td class="table__rows-td" th:text="${user.apellido}"></td>
                     <td class="table__rows-td" ><a th:href="@{users/view/{id} (id=${user.id})}"><i class="fas fa-eye"></i>Ver</a></td>
-                    <td class="table__rows-td" ><a th:href="@{users/edit/{id} (id=${user.id})}"><i class="fas fa-edit"></i>Editar</a></td>
                     <td class="table__rows-td" ><a th:href="@{users/delete/{id} (id=${user.id})}"><i class="fas fa-trash"></i>Eliminar</a></td>
                 </tr>
                 </tbody>

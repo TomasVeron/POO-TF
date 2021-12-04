@@ -14,7 +14,8 @@ public interface UserService {
 
     public List<User> getAllUsers();
 
-    public User getSocioById(Long id);
+    public User getUserById(Long id);
 
 
+    void deleteUser(User user, User sessionUser) throws Exception;
 }

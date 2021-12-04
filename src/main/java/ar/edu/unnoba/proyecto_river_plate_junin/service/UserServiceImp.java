@@ -10,6 +10,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 
 @Service
@@ -68,8 +69,16 @@ public class UserServiceImp implements UserService, UserDetailsService{
     }
 
     @Override
-    public User getSocioById(Long id) {
+    public User getUserById(Long id) {
         return repository.findById(id).get();
+    }
+
+    @Override
+    public void deleteUser(User usuario ,User sessionUser) throws Exception {
+        if (Objects.equals(sessionUser.getId(), usuario.getId())) {
+            throw new Exception("No puede dar de baja usuario actual");
+        }
+        repository.delete(usuario);
     }
 
 
