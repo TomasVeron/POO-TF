@@ -26,7 +26,7 @@
             <form class="login" method="POST" th:object="${user}" th:action="@{/login}">
                 <h2>Welcome!</h2>
                 <div class="login__input-errors" th:if="${param.error}">El email o la contraseña son incorrectos</div>
-                <div class="login__input-logout" th:if="${param.logout}">usted a cerrado sesion correctamente</div>
+                <div class="login__input-logout" th:if="${param.logout}">Usted a cerrado sesion correctamente</div>
                 <div class="login__input-container">
                     <input type="text" name="username" class="login__input" id="login__user" th:field="*{email}" autocomplete="off" required>
                     <label for="login__user" class="login__lbl"><i class="fas fa-user"></i><span

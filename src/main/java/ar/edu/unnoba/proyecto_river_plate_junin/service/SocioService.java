@@ -9,6 +9,8 @@ import java.util.List;
 @Service
 public interface SocioService {
 
-    public List<Socio> getSocios();
+    public List<Socio> getAllSocios();
+
+    public Socio createSocio(Socio socio) throws Exception;
 
 }

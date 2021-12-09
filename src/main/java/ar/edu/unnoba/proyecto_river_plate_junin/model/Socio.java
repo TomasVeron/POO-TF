@@ -34,8 +34,8 @@ public class Socio implements Serializable {
     private Date fechaAlta;
     
     @Column(name="fecha_nacimiento")
-    @NotBlank(message = "El campo fecha de nacimiento no puede estar vacio")
-    @Past(message = "fecha invalida")
+//    @NotBlank(message = "El campo fecha de nacimiento no puede estar vacio")
+//    @Past(message = "fecha invalida")
     private Date fechaNacimiento;
     
     @Column
