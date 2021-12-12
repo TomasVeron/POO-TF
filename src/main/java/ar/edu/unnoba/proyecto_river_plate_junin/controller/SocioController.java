@@ -10,6 +10,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
@@ -48,6 +49,27 @@ public class SocioController {
 
         return "redirect:/socios";
     }
+
+    @PostMapping("/socios/update")
+    public String update(@ModelAttribute("socio") Socio socio){
+        socioService.updateSocio(socio);
+        return "redirect:/socios";
+    }
+
+    @GetMapping("/socios/edit/{id}")
+    public String socioEdit(@PathVariable("id") Socio socio, Model model){
+        socio = socioService.getSocio(socio);
+        model.addAttribute("socio",socio);
+        return "/socios/editSocio";
+    }
+
+    @GetMapping("/socios/view/{id}")
+    public String verSocio(@PathVariable("id") Socio socio, Model model){
+        socio = socioService.getSocio(socio);
+        model.addAttribute("socio",socio);
+        return "/socios/viewSocio";
+    }
+
 
 
 }

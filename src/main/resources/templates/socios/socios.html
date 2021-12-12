@@ -28,7 +28,7 @@
                     <button class="listUser__btnSearch"><i class="fas fa-search"></i></button>
                 </div>
 
-                <a class="listUser__registerButton" th:href="@{/socios/addSocio}"><i class="fas fa-user-plus"></i>alta Socio</a>
+                <a class="listUser__registerButton" th:href="@{/socios/addSocio}"><i class="fas fa-user-plus"></i>Alta Socio</a>
 
             </div>
             <table class="table">
@@ -44,12 +44,14 @@
                 </thead>
                 <tbody>
                 <tr class="table__rows" th:each="socio : ${socios}">
-                    <td class="table__rows-td" th:text="${socio.activo}"></td>
+                    <td class="table__rows-td">
+                        <i th:if="${socio.activo==true}" class="table__socio-active fas fa-check-circle"></i>
+                        <i th:if="${socio.activo==false}" class="table__socio-inactive fas fa-times-circle"></i>
+                        <span th:text="${socio.activo ? 'Activo':'Inactivo'}"></span> </td>
                     <td class="table__rows-td" th:text="${socio.nombre}"></td>
                     <td class="table__rows-td" th:text="${socio.apellido}"></td>
-                    <td class="table__rows-td" ><a href=""><i class="fas fa-eye"></i>Ver</a></td>
-                    <td class="table__rows-td" ><a href=""><i class="fas fa-edit"></i>Editar</a></td>
-                    <td class="table__rows-td" ><a href=""><i class="fas fa-trash"></i>Eliminar</a></td>
+                    <td class="table__rows-td" ><a th:href="@{socios/view/{id} (id=${socio.id})}"><i class="fas fa-eye"></i>Ver</a></td>
+                    <td class="table__rows-td" ><a th:href="@{socios/edit/{id} (id=${socio.id})}"><i class="fas fa-edit"></i>Editar</a></td>
                 </tr>
                 </tbody>
             </table>

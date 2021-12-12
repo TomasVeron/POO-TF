@@ -31,4 +31,22 @@ public class SocioServiceImp implements SocioService{
         socio.setActivo(true);
         return repository.save(socio);
     }
+
+
+    @Override
+    public Socio updateSocio(Socio socio) {
+
+        Socio uDB = repository.findById(socio.getId()).orElse(null);
+        uDB.setEmail(socio.getEmail());
+        uDB.setDireccion(socio.getDireccion());
+        uDB.setTelefono(socio.getTelefono());
+        uDB.setActivo(socio.isActivo());
+        return repository.save(uDB);
+    }
+
+    @Override
+    public Socio getSocio (Socio socio) {
+        return repository.findById(socio.getId()).orElse(null);
+
+    }
 }

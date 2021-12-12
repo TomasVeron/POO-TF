@@ -1,6 +1,7 @@
 package ar.edu.unnoba.proyecto_river_plate_junin.model;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
@@ -34,8 +35,6 @@ public class Socio implements Serializable {
     private Date fechaAlta;
     
     @Column(name="fecha_nacimiento")
-//    @NotBlank(message = "El campo fecha de nacimiento no puede estar vacio")
-//    @Past(message = "fecha invalida")
     private Date fechaNacimiento;
     
     @Column
@@ -53,8 +52,11 @@ public class Socio implements Serializable {
     
     @Column
     @NotNull(message = "El campo no puede ser null")
-    private boolean activo=true;
+    private boolean activo;
 
 
-
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    public Date getFechaNacimiento() {
+        return fechaNacimiento;
+    }
 }
