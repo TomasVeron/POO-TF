@@ -64,7 +64,7 @@
         </div>
         <div class="userDetails-container">
             <h3 class="userDetails__detailName">Estado</h3>
-            <span class="userDetails__detailInfo" th:text="${socio.activo}"></span>
+            <span class="userDetails__detailInfo" th:text="${socio.activo ? 'Activo/a':'Inactivo/a'}"></span>
         </div>
     </div>
 </div>
